@@ -62,7 +62,7 @@ export class CronComponent implements OnInit, OnDestroy {
     minutesExpression: string = '*';
     hoursExpression: string = '*';
     daysExpression: string = '*';
-    monthsExpression: string = '?'
+    monthsExpression: string = '*'
     weeksExpression: string = '?'
 
     @Output()
