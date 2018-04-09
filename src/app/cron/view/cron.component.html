@@ -1,0 +1,89 @@
+<div class="portlet box blue" style="width: 80%;margin: 0 auto;">
+    <div class="portlet-title">
+        <div class="caption">
+            Cron表达式：
+            <input type="text" readonly style="width:600px;display:inline-block" class="form-control" [(ngModel)]="timingExpression"
+                name="timingExpression" />
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-2 col-sm-2 col-xs-2">
+                <ul class="nav nav-tabs tabs-left">
+                    <li class="active">
+                        <a href="#tab_6_1" data-toggle="tab"> 天数 </a>
+                    </li>
+                    <li>
+                        <a href="#tab_6_2" data-toggle="tab"> 小时 </a>
+                    </li>
+                    <li>
+                        <a href="#tab_6_3" data-toggle="tab"> 分钟 </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-10">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_6_1">
+                        <p>
+                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                <input name="required" (change)='selectAll("1")' [(ngModel)]="everyday" type='checkbox' />
+                                <span></span>
+                            </label>每天
+                        </p>
+                        <p>
+                            <ng-container *ngFor='let day of weekday'>
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input name="required" (change)='weeksChecked()' [(ngModel)]="day.select" type='checkbox' />
+                                    <span></span>
+                                </label>{{day.name}}
+                            </ng-container>
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="tab_6_2">
+                        <p>
+                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                <input name="required" (change)='selectAll("2")' [(ngModel)]="everyhours" type='checkbox' />
+                                <span></span>
+                            </label>每小时
+                        </p>
+                        <p>
+                            <span style="display:inline-block;width: 38px;margin-right: 8px;margin-bottom:  6px;" *ngFor='let hour of hours'>
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input name="required" (change)='hoursChecked()' [(ngModel)]="hour.select" type='checkbox' />
+                                    <span></span>
+                                </label>{{hour.name}}
+                            </span>
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="tab_6_3">
+                        <p>
+                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                <input name="required" (change)='selectAll("4")' [(ngModel)]="minsModel" type='checkbox' />
+                                <span></span>
+                            </label>
+                            从第&nbsp;
+                            <input [disabled]='!minsModel' (input)="initTimingExpression()" type="number" value="0" min="0" max="59" maxlength="2" style="width:40px;"
+                                name="min-from" [(ngModel)]="minutes1" /> &nbsp;分钟开始，每隔&nbsp;
+                            <input [disabled]='!minsModel' (input)="initTimingExpression()" type="number" value="5" min="1" max="50" maxlength="2" style="width:40px;"
+                                name="min-space" [(ngModel)]="minutes2" /> &nbsp;分钟执行
+                        </p>
+                        <p>
+                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                <input [disabled]='minsModel' name="required" (change)='selectAll("3")' [(ngModel)]="everymins" type='checkbox' />
+                                <span></span>
+                            </label>每分钟
+                        </p>
+                        <p>
+                            <span style="display:inline-block;width:38px;margin-right: 8px;margin-bottom:  6px;" *ngFor='let min of mins'>
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input [disabled]='minsModel' name="required" (change)='minutesChecked()' [(ngModel)]="min.select" type='checkbox' />
+                                    <span></span>
+                                </label>{{min.name}}
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
