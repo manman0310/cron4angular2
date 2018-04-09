@@ -1,6 +1,14 @@
 # cron4angular2
 基于angular2的cron表达式
+there is an angular2 CronExpression component 
 包括周时分的选择
+including weeks,hours and mins.
+
+图示如下：
+![image](https://github.com/manman0310/cron4angular2/blob/master/src/assets/pic1.png)
+![image](https://github.com/manman0310/cron4angular2/blob/master/src/assets/pic2.png)
+![image](https://github.com/manman0310/cron4angular2/blob/master/src/assets/pic3.png)
+
 
 # Cron4angular2
 
