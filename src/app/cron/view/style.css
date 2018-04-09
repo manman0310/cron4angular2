@@ -200,3 +200,20 @@ input[type=checkbox], input[type=radio] {
 .tab-content {
     text-align: left
 }
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+
+.tabs-left.nav-tabs>li.active>a, .tabs-left.nav-tabs>li.active>a:hover>li.active>a:focus {
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    -ms-border-radius: 4px 0 0 4px;
+    -o-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+    border-color: #ddd transparent #ddd #ddd;
+}
